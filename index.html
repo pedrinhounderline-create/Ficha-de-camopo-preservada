@@ -1,0 +1,167 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fichas de Campo Arqueológico</title>
+<style>
+*{box-sizing:border-box}
+body{font-family:Arial,sans-serif;background:#f1f4f2;color:#26352d;margin:0}
+header{background:#234b38;color:white;padding:22px 16px}
+header h1{font-size:23px;margin:0 0 7px}
+header p{margin:0;font-size:14px}
+main{max-width:850px;margin:auto;padding:16px}
+section{background:white;padding:18px;margin-bottom:15px;border-radius:12px}
+h2{font-size:18px;margin-top:0;color:#234b38}
+label{display:block;font-size:14px;font-weight:bold;margin:13px 0 6px}
+input[type=text],input[type=date],textarea,select{
+width:100%;padding:12px;border:1px solid #bdc9c0;border-radius:7px;
+font-size:16px;background:white;color:#222
+}
+textarea{min-height:85px;resize:vertical}
+.checks{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:10px}
+.checks label{display:flex;align-items:center;gap:8px;font-weight:normal;margin:5px 0}
+input[type=checkbox]{width:20px;height:20px;accent-color:#234b38}
+.buttons{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px}
+button{border:0;border-radius:8px;padding:14px 10px;font-size:15px;font-weight:bold;cursor:pointer}
+.primary{background:#234b38;color:white}
+.secondary{background:#dfe9e2;color:#234b38}
+footer{text-align:center;padding:20px;color:#607267;font-size:12px}
+@media print{
+body{background:white;font-size:11pt}
+header{background:white;color:black;padding:0 0 12px}
+main{padding:0;max-width:none}
+section{padding:8px 0;margin:0;border-radius:0;break-inside:avoid}
+input[type=text],input[type=date],textarea,select{border:0;border-bottom:1px solid #aaa;padding:5px}
+.buttons,.no-print,footer{display:none!important}
+h2{font-size:14pt}
+textarea{min-height:45px}
+}
+</style>
+</head>
+<body>
+<header>
+<h1>Ficha de Campo Arqueológico</h1>
+<p>Registro de atividades e observações de campo</p>
+</header>
+<main>
+<form id="ficha">
+<section>
+<h2>1. Identificação</h2>
+<label>Projeto</label><input type="text" name="Projeto">
+<label>Sítio arqueológico / CNSA</label><input type="text" name="Sitio">
+<label>Responsável pelo registro</label><input type="text" name="Responsavel">
+<label>Data</label><input type="date" name="Data">
+<label>Município / UF</label><input type="text" name="Municipio">
+<label>Propriedade / localidade</label><input type="text" name="Localidade">
+</section>
+<section>
+<h2>2. Localização</h2>
+<label>Coordenada E / Longitude UTM</label><input type="text" name="CoordE">
+<label>Coordenada N / Latitude UTM</label><input type="text" name="CoordN">
+<label>Zona UTM</label><input type="text" name="Zona">
+<label>Sistema de referência</label>
+<select name="Datum"><option>SIRGAS 2000</option><option>Outro</option></select>
+<label>Altitude (m)</label><input type="text" name="Altitude">
+</section>
+<section>
+<h2>3. Caracterização do local</h2>
+<label>Relevo / geomorfologia</label><textarea name="Relevo"></textarea>
+<label>Vegetação e cobertura do solo</label><textarea name="Vegetacao"></textarea>
+<label>Tipo de sítio / contexto arqueológico</label>
+<div class="checks">
+<label><input type="checkbox" name="Tipo" value="Lítico"> Lítico</label>
+<label><input type="checkbox" name="Tipo" value="Cerâmico"> Cerâmico</label>
+<label><input type="checkbox" name="Tipo" value="Histórico"> Histórico</label>
+<label><input type="checkbox" name="Tipo" value="Arte rupestre"> Arte rupestre</label>
+<label><input type="checkbox" name="Tipo" value="Estrutura"> Estrutura</label>
+<label><input type="checkbox" name="Tipo" value="Outro"> Outro</label>
+</div>
+<label>Descrição dos vestígios</label><textarea name="Vestigios"></textarea>
+</section>
+<section>
+<h2>4. Conservação e interferências</h2>
+<label>Estado de conservação</label>
+<div class="checks">
+<label><input type="checkbox" name="Conservacao" value="Bom"> Bom</label>
+<label><input type="checkbox" name="Conservacao" value="Regular"> Regular</label>
+<label><input type="checkbox" name="Conservacao" value="Ruim"> Ruim</label>
+<label><input type="checkbox" name="Conservacao" value="Não avaliado"> Não avaliado</label>
+</div>
+<label>Interferências observadas</label>
+<div class="checks">
+<label><input type="checkbox" name="Interferencia" value="Agricultura"> Agricultura</label>
+<label><input type="checkbox" name="Interferencia" value="Obras"> Obras</label>
+<label><input type="checkbox" name="Interferencia" value="Erosão"> Erosão</label>
+<label><input type="checkbox" name="Interferencia" value="Vegetação densa"> Vegetação densa</label>
+<label><input type="checkbox" name="Interferencia" value="Acesso restrito"> Acesso restrito</label>
+<label><input type="checkbox" name="Interferencia" value="Nenhuma aparente"> Nenhuma aparente</label>
+</div>
+<label>Descrição da conservação e das interferências</label><textarea name="DescricaoConservacao"></textarea>
+</section>
+<section>
+<h2>5. Atividades realizadas</h2>
+<div class="checks">
+<label><input type="checkbox" name="Atividade" value="Prospecção"> Prospecção</label>
+<label><input type="checkbox" name="Atividade" value="Monitoramento"> Monitoramento</label>
+<label><input type="checkbox" name="Atividade" value="Resgate"> Resgate</label>
+<label><input type="checkbox" name="Atividade" value="Registro fotográfico"> Registro fotográfico</label>
+<label><input type="checkbox" name="Atividade" value="Educação patrimonial"> Educação patrimonial</label>
+<label><input type="checkbox" name="Atividade" value="Inspeção"> Inspeção</label>
+</div>
+<label>Descrição das atividades e observações</label><textarea name="Observacoes"></textarea>
+<label>Referências das fotografias</label><textarea name="Fotos" placeholder="Ex.: Foto 01, vista geral do local..."></textarea>
+<label>Providências / recomendações</label><textarea name="Providencias"></textarea>
+</section>
+<div class="buttons no-print">
+<button type="button" class="primary" onclick="salvarPDF()">Salvar ficha em PDF</button>
+<button type="button" class="secondary" onclick="guardar()">Guardar preenchimento</button>
+<button type="button" class="secondary" onclick="novaFicha()">Nova ficha</button>
+<button type="button" class="secondary" onclick="recuperar()">Recuperar preenchimento</button>
+</div>
+</form>
+</main>
+<footer>Ficha de Campo Arqueológico · Registro digital</footer>
+<script>
+const form=document.getElementById('ficha');
+function dados(){
+const d={};
+for(const e of form.elements){
+if(!e.name)continue;
+if(e.type==='checkbox'){
+if(e.checked)(d[e.name]??=[]).push(e.value);
+}else d[e.name]=e.value;
+}
+return d;
+}
+function preencher(d){
+for(const e of form.elements){
+if(!e.name)continue;
+if(e.type==='checkbox')e.checked=(d[e.name]||[]).includes(e.value);
+else if(Object.hasOwn(d,e.name))e.value=d[e.name];
+}
+}
+function guardar(){
+localStorage.setItem('fichaCampoAtual',JSON.stringify(dados()));
+alert('Preenchimento guardado neste navegador.');
+}
+function recuperar(){
+const d=localStorage.getItem('fichaCampoAtual');
+if(!d){alert('Não há preenchimento guardado neste navegador.');return;}
+preencher(JSON.parse(d));
+alert('Preenchimento recuperado.');
+}
+function salvarPDF(){
+const nome=form.elements.Projeto.value.trim()||'Ficha de campo';
+document.title=nome.replace(/[\\/:*?"<>|]/g,'_');
+window.print();
+}
+function novaFicha(){
+if(!confirm('Iniciar uma ficha nova? Guarde antes o preenchimento atual, se precisar dele.'))return;
+form.reset();
+document.title='Fichas de Campo Arqueológico';
+}
+</script>
+</body>
+</html>
